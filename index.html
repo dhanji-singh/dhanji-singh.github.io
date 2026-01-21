@@ -1,116 +1,562 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Dhanji | Portfolio</title>
+  <title>Aditya Singh (Dhanji) | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f4f4f4; color: #333;
+      box-sizing: border-box;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated background effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      overflow-y: auto;
+    }
+
     header {
-      background: #222; color: #fff;
-      padding: 20px; text-align: center;
+      background: rgba(15, 12, 41, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+      padding: 2rem 2rem 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    header h1 { margin: 0; }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #a855f7 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.5px;
+    }
+
+    .online-name {
+      font-size: 1rem;
+      color: #a0aec0;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    header p {
+      color: #a0aec0;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
     nav a {
-      color: #fff; margin: 0 10px; text-decoration: none;
+      color: #cbd5e0;
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      position: relative;
+      overflow: hidden;
     }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
     section {
-      padding: 40px; max-width: 900px; margin: auto;
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease-out;
     }
-    h2 { color: #444; }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #a855f7);
+      border-radius: 2px;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #a855f7);
+      border-radius: 2px;
+    }
+
+    #about p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #cbd5e0;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .detail-item {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cbd5e0;
+    }
+
+    .detail-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+    }
+
+    .detail-item strong {
+      color: #a78bfa;
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .detail-item a {
+      color: #667eea;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .detail-item a:hover {
+      color: #a78bfa;
+    }
+
     .skills, .projects, .badges {
-      display: flex; flex-wrap: wrap; gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
+
     .card {
-      background: #fff; padding: 20px;
-      border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      flex: 1 1 250px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
     }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(99, 102, 241, 0.5);
+      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .skills .card {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #e2e8f0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+    }
+
+    .projects .card h4 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects .card p {
+      color: #a0aec0;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects .card a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      display: inline-block;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .projects .card a:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateX(4px);
+      color: #a78bfa;
+    }
+
+    .badges .card {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fbbf24;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
+      border-color: rgba(251, 191, 36, 0.3);
+    }
+
+    .badges .card:hover {
+      border-color: rgba(251, 191, 36, 0.6);
+      box-shadow: 0 12px 30px rgba(251, 191, 36, 0.2);
+    }
+
+    #contact p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #cbd5e0;
+    }
+
+    #contact a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    #contact a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #a855f7);
+      transition: width 0.3s ease;
+    }
+
+    #contact a:hover {
+      color: #a78bfa;
+    }
+
+    #contact a:hover::after {
+      width: 100%;
+    }
+
     footer {
-      background: #222; color: #fff;
-      text-align: center; padding: 20px;
+      background: rgba(15, 12, 41, 0.9);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(99, 102, 241, 0.2);
+      text-align: center;
+      padding: 2rem;
+      color: #a0aec0;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .online-name {
+        font-size: 0.9rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      h2, h3 {
+        font-size: 1.6rem;
+      }
+
+      .skills, .projects, .badges, .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 0.5rem;
+      }
+
+      nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+      }
+
+      .card, .detail-item {
+        padding: 1.5rem;
+      }
     }
   </style>
-</head>
-<body>
-
-  <header>
-    <h1>👨‍💻 Dhanji Singh</h1>
-    <p>Cybersecurity & DevSecOps Enthusiast | BCA @ BBDU</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#badges">Badges</a>
-      <a href="#contact">Contact</a>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="wrapper">
+   <header>
+    <h1>👨‍💻 Aditya Singh</h1>
+    <div class="online-name">
+     aka Dhanji
+    </div>
+    <p>Cybersecurity &amp; DevSecOps Enthusiast | BCA @ BBDU</p>
+    <nav><a href="#about">About</a> <a href="#details">Details</a> <a href="#skills">Skills</a> <a href="#projects">Projects</a> <a href="#certificates">Certificates</a> <a href="#badges">Badges</a> <a href="#contact">Contact</a>
     </nav>
-  </header>
-
-  <section id="about">
+   </header>
+   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Hi, I'm Dhanji — a first-year BCA student specializing in Cybersecurity & Forensics (IBM-collab).
-      I love blending technical mastery with creative formats like Hinglish poetry and milestone badges.
-      My goal: become a recruiter magnet by 6th semester 🚀.
-    </p>
-  </section>
-
-  <section id="skills">
+    <p>Hi, I'm Aditya Singh (known online as Dhanji) — a first-year BCA student specializing in Cybersecurity &amp; Forensics (IBM-collab) at BBDU Lucknow. I love blending technical mastery with creative formats like Hinglish poetry and milestone badges. My goal: become a recruiter magnet by 6th semester and secure 10–11 LPA by 2028 🚀.</p>
+   </section><!-- My Details Section -->
+   <section id="details">
+    <h3>My Details</h3>
+    <div class="details-grid">
+     <div class="detail-item"><strong>Full Name:</strong> Aditya Singh (Dhanji)
+     </div>
+     <div class="detail-item"><strong>Email:</strong> <a href="mailto:singh.aditya932005@gmail.com">singh.aditya932005@gmail.com</a>
+     </div>
+     <div class="detail-item"><strong>Location:</strong> Lucknow, Uttar Pradesh, India
+     </div>
+     <div class="detail-item"><strong>Education:</strong> BCA (Cybersecurity &amp; Forensics, IBM-collab) @ BBDU Lucknow
+     </div>
+     <div class="detail-item"><strong>Skills:</strong> Cybersecurity, DevSecOps, Linux Networking, Workflow Automation
+     </div>
+     <div class="detail-item"><strong>Goal:</strong> Recruiter Magnet by 6th Semester 🚀 | Secure 10–11 LPA by 2028
+     </div>
+    </div>
+   </section>
+   <section id="skills">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="card">🔐 Cybersecurity Basics</div>
-      <div class="card">🖥️ Linux & Networking</div>
-      <div class="card">⚙️ DevSecOps Tools (nmap, Wireshark)</div>
-      <div class="card">📚 Workflow Automation</div>
-      <div class="card">🎨 Creative Hinglish Documentation</div>
+     <div class="card">
+      🔐 Cybersecurity Basics
+     </div>
+     <div class="card">
+      🖥️ Linux &amp; Networking
+     </div>
+     <div class="card">
+      ⚙️ DevSecOps Tools (nmap, Wireshark)
+     </div>
+     <div class="card">
+      📚 Workflow Automation
+     </div>
+     <div class="card">
+      🎨 Creative Hinglish Documentation
+     </div>
     </div>
-  </section>
-
-  <section id="projects">
+   </section>
+   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">
-        <h3>GitHub Pages Portfolio</h3>
-        <p>My recruiter-ready showcase with milestone badges.</p>
-        <a href="https://github.com/dhanji-singh" target="_blank">View Repo</a>
-      </div>
-      <div class="card">
-        <h3>Blog Engine</h3>
-        <p>Dynamic blog with theme panel & Hinglish intro.</p>
-      </div>
-      <div class="card">
-        <h3>Mini Projects</h3>
-        <p>DSUC, NSPA, WD subject-wise experiments.</p>
-      </div>
+     <div class="card">
+      <h4>GitHub Pages Portfolio</h4>
+      <p>My recruiter-ready showcase with milestone badges.</p><a href="https://github.com/dhanji-singh" target="_blank" rel="noopener noreferrer">View Repo</a>
+     </div>
+     <div class="card">
+      <h4>Blog Engine</h4>
+      <p>Dynamic blog with theme panel &amp; Hinglish intro.</p>
+     </div>
+     <div class="card">
+      <h4>Mini Projects</h4>
+      <p>DSUC, NSPA, WD subject-wise experiments.</p>
+     </div>
     </div>
-  </section>
-
-  <section id="badges">
+   </section>
+   <section id="certificates">
+    <h2>Certifications</h2>
+    <div class="projects">
+     <div class="card">
+      <h4>📜 Introduction to Critical Infrastructure Protection</h4>
+      <p><strong>Issued by:</strong> OSPWAT Academy</p>
+      <p>Completed certification in critical infrastructure security and protection strategies.</p>
+     </div>
+    </div>
+   </section>
+   <section id="badges">
     <h2>Milestone Badges</h2>
     <div class="badges">
-      <div class="card">🏆 404 Slayer</div>
-      <div class="card">💻 Terminal Tamer</div>
-      <div class="card">🎨 Style Commander</div>
-      <div class="card">🐞 Bug Buster</div>
+     <div class="card">
+      🏆 404 Slayer
+     </div>
+     <div class="card">
+      💻 Terminal Tamer
+     </div>
+     <div class="card">
+      🎨 Style Commander
+     </div>
+     <div class="card">
+      🐞 Bug Buster
+     </div>
     </div>
-  </section>
-
-  <section id="contact">
+   </section>
+   <section id="contact">
     <h2>Contact</h2>
-    <p>Instagram: <a href="https://www.instagram.com/dhanji_singhh/"</a></a>p>
-    <p>Email: <a href="singh.aditya932005@gmail.com"></a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/dhanji-singh" target="_blank">linkedin.com/in/dhanji-singh</a></p>
-    <p>GitHub: <a href="https://github.com/dhanji-singh" target="_blank">github.com/dhanji-singh</a></p>
-  </section>
-
-  <footer>
-    <p>© 2026 Dhanji Singh | Built with ❤️ and Hinglish creativity</p>
-  </footer>
-
-</body>
+    <p>Email: <a href="mailto:singh.aditya932005@gmail.com">singh.aditya932005@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/dhanji-singh" target="_blank" rel="noopener noreferrer">linkedin.com/in/dhanji-singh</a></p>
+    <p>GitHub: <a href="https://github.com/dhanji-singh" target="_blank" rel="noopener noreferrer">github.com/dhanji-singh</a></p>
+   </section>
+   <footer>
+    <p>© 2026 Aditya Singh (Dhanji) | Built with ❤️ </p>
+   </footer>
+  </div>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c155bfc405e551c',t:'MTc2ODk4MzI4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
