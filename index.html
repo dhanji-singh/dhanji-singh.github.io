@@ -477,6 +477,255 @@
       letter-spacing: 2px;
     }
 
+    /* Coming Soon Modal */
+    .coming-soon-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .coming-soon-modal.active {
+      display: flex;
+    }
+
+    .rain-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0) 100%);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    .coming-soon-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #ffd700;
+      max-width: 600px;
+      padding: 40px;
+    }
+
+    .coming-soon-content h1 {
+      font-size: 3.5em;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00;
+      animation: titlePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .coming-soon-content p {
+      font-size: 1.3em;
+      line-height: 1.8;
+      margin: 30px 0;
+      color: #e0e0e0;
+      letter-spacing: 1px;
+    }
+
+    .weedstar-character {
+      position: relative;
+      margin: 40px 0;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .character-body {
+      width: 80px;
+      height: 100px;
+      background: linear-gradient(135deg, #ff6b00 0%, #ffa500 100%);
+      border-radius: 20px;
+      position: relative;
+      animation: bodySway 3s ease-in-out infinite;
+    }
+
+    .character-head {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #ff8c00 0%, #ffb347 100%);
+      border-radius: 50%;
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      animation: headBob 2s ease-in-out infinite;
+    }
+
+    .character-eyes {
+      position: absolute;
+      top: 15px;
+      left: 12px;
+      width: 8px;
+      height: 8px;
+      background: #000;
+      border-radius: 50%;
+      animation: eyeGlow 1.5s ease-in-out infinite;
+    }
+
+    .character-eyes::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #000;
+      border-radius: 50%;
+      right: -20px;
+    }
+
+    .bong {
+      position: absolute;
+      right: -30px;
+      bottom: 20px;
+      width: 40px;
+      height: 80px;
+      background: linear-gradient(90deg, #228B22 0%, #32CD32 50%, #228B22 100%);
+      border-radius: 10px 10px 20px 20px;
+      border: 3px solid #00AA00;
+      animation: bongSmoke 1.5s ease-in-out infinite;
+    }
+
+    .bong::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0) 100%);
+      top: -40px;
+      left: 12px;
+      border-radius: 50%;
+      animation: smokeRise 1.5s ease-in-out infinite;
+      filter: blur(3px);
+    }
+
+    .bong::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 30px;
+      background: linear-gradient(180deg, rgba(255, 69, 0, 0.6) 0%, rgba(255, 69, 0, 0) 100%);
+      top: -35px;
+      left: 16px;
+      border-radius: 50%;
+      animation: flameFlicker 0.3s ease-in-out infinite;
+      filter: blur(2px);
+    }
+
+    @keyframes bodySway {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    @keyframes headBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes eyeGlow {
+      0%, 100% { box-shadow: 0 0 5px #ffd700; }
+      50% { box-shadow: 0 0 15px #ff6b00; }
+    }
+
+    @keyframes bongSmoke {
+      0%, 100% { transform: translateX(0) rotate(-5deg); }
+      50% { transform: translateX(10px) rotate(5deg); }
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-60px); }
+    }
+
+    @keyframes flameFlicker {
+      0%, 100% { height: 30px; opacity: 0.8; }
+      50% { height: 35px; opacity: 1; }
+    }
+
+    .hindi-vibe-text {
+      font-size: 1.5em;
+      font-weight: 900;
+      color: #ff6b00;
+      text-shadow: 0 0 20px #ffd700, 0 0 40px #ff6b00, 0 0 60px #ff0000;
+      animation: textFlare 2s ease-in-out infinite;
+      letter-spacing: 2px;
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    @keyframes textFlare {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+    }
+
+    .coming-soon-footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    .close-modal-btn {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: 2px solid #ffd700;
+      background: transparent;
+      color: #ffd700;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .close-modal-btn:hover {
+      background: #ffd700;
+      color: #000000;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ffd700;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .clock-container {
@@ -539,8 +788,7 @@
     Live
    </div>
   </div>
-  <div class="wrapper">
-   <!-- Hero Section -->
+  <div class="wrapper"><!-- Hero Section -->
    <section class="hero">
     <div class="bg-particle"></div>
     <div class="bg-particle"></div>
@@ -560,8 +808,7 @@
      <div class="story-preview">
       In the bustling city of Lucknow, a young coder named Dhanji transforms by night into a digital architect. With cybersecurity mastery and DevSecOps expertise, he builds recruit-friendly GUI projects that shield cyberspace. His Lenovo laptop is his Stark-tech suit, and his vision will empower the entire dev community...
      </div>
-     <div class="hero-buttons">
-      <a href="#story" class="btn btn-primary">Read Full Story</a> <a href="#links" class="btn btn-secondary">Connect With Me</a>
+     <div class="hero-buttons"><a href="#story" class="btn btn-primary">Read Full Story</a> <a href="#links" class="btn btn-secondary">Connect With Me</a>
      </div>
     </div>
    </section><!-- Story Section -->
@@ -577,7 +824,7 @@
    <section class="story-section">
     <h2>ARSENAL</h2>
     <div class="stats-section">
-     <div class="stat-card">
+     <div class="stat-card" style="cursor: pointer;" onclick="openComingSoon()">
       <div class="stat-label">
        Specialization
       </div>
@@ -587,46 +834,45 @@
       <div class="stat-label" style="margin-top: 15px;">
        Cybersecurity &amp; Forensics
       </div>
-     </div>
-     <div class="stat-card">
-      <div class="stat-label">
-       Superpower
-      </div>
-      <div class="stat-value">
-       ⚙️
-      </div>
-      <div class="stat-label" style="margin-top: 15px;">
-       DevSecOps Mastery
-      </div>
-     </div>
-     <div class="stat-card">
-      <div class="stat-label">
-       Tech Stack
-      </div>
-      <div class="stat-value">
-       💻
-      </div>
-      <div class="stat-label" style="margin-top: 15px;">
-       VS Code &amp; GitHub
-      </div>
-     </div>
-     <div class="stat-card">
-      <div class="stat-label">
-       Weapon
-      </div>
-      <div class="stat-value">
-       🛡️
-      </div>
-      <div class="stat-label" style="margin-top: 15px;">
-       Password Strength Analyzer
-      </div>
-     </div>
+     </div><a href="https://www.linkedin.com/in/aditya-singh-1878b6223/details/skills/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; cursor: pointer;">
+      <div class="stat-card" style="cursor: pointer;">
+       <div class="stat-label">
+        Superpower
+       </div>
+       <div class="stat-value">
+        ⚙️
+       </div>
+       <div class="stat-label" style="margin-top: 15px;">
+        DevSecOps Mastery
+       </div>
+      </div></a><a href="https://github.com/dhanji-singh" target="_blank" rel="noopener noreferrer" style="text-decoration: none; cursor: pointer;">
+      <div class="stat-card" style="cursor: pointer;">
+       <div class="stat-label">
+        Tech Stack
+       </div>
+       <div class="stat-value">
+        💻
+       </div>
+       <div class="stat-label" style="margin-top: 15px;">
+        VS Code &amp; GitHub
+       </div>
+      </div></a><a href="https://github.com/dhanji-singh/Password-Strength-Analyzer" target="_blank" rel="noopener noreferrer" style="text-decoration: none; cursor: pointer;">
+      <div class="stat-card" style="cursor: pointer;">
+       <div class="stat-label">
+        Weapon
+       </div>
+       <div class="stat-value">
+        🛡️
+       </div>
+       <div class="stat-label" style="margin-top: 15px;">
+        Password Strength Analyzer
+       </div>
+      </div></a>
     </div>
    </section><!-- Links Section -->
    <section class="links-section" id="links">
     <h2>CONNECT WITH THE GUARDIAN</h2>
-    <div class="links-container">
-     <a href="https://www.instagram.com/dhanji_singhh/" target="_blank" rel="noopener noreferrer" class="social-link">
+    <div class="links-container"><a href="https://www.instagram.com/dhanji_singhh/" target="_blank" rel="noopener noreferrer" class="social-link">
       <div class="social-icon">
        📸
       </div>
@@ -659,9 +905,88 @@
    <section class="footer">
     <p>⚡ The Guardian of Code ⚡</p>
     <p style="margin-top: 10px; font-size: 0.8em;">Protecting Cyberspace One Project at a Time</p>
-   </section>
+   </section><!-- Coming Soon Modal -->
+   <div class="coming-soon-modal" id="comingSoonModal">
+    <div class="rain-container" id="rainContainer"></div>
+    <div class="coming-soon-content">
+     <div class="weedstar-character">
+      <div class="character-body">
+       <div class="character-head">
+        <div class="character-eyes"></div>
+       </div>
+      </div>
+      <div class="bong"></div>
+     </div>
+     <div class="hindi-vibe-text">
+      🔥 COMING SOOON BRO 🔥
+     </div>
+     <p style="margin-top: 20px;">जल्दी ही मिलेंगे नए दिन पे नई ऊँचाई पे...</p>
+     <p style="margin-top: 30px; font-size: 1.1em;">मेरी नई शक्तियों का खुलासा होने वाला है। साइबर स्पेस की रक्षा के लिए नए हथियार तैयार हो रहे हैं।</p>
+     <div class="coming-soon-footer">
+      ⚡ The Guardian is Evolving ⚡
+     </div><button class="close-modal-btn" onclick="closeComingSoon()">वापस जाएं</button>
+    </div>
+   </div>
   </div>
   <script>
+    function openComingSoon() {
+      const modal = document.getElementById('comingSoonModal');
+      modal.classList.add('active');
+      createRain();
+    }
+
+    function closeComingSoon() {
+      const modal = document.getElementById('comingSoonModal');
+      modal.classList.remove('active');
+      const rainContainer = document.getElementById('rainContainer');
+      rainContainer.innerHTML = '';
+    }
+
+    function createRain() {
+      const rainContainer = document.getElementById('rainContainer');
+      rainContainer.innerHTML = '';
+      
+      for (let i = 0; i < 100; i++) {
+        const raindrop = document.createElement('div');
+        raindrop.className = 'raindrop';
+        
+        const leftPos = Math.random() * 100;
+        const duration = 0.5 + Math.random() * 0.5;
+        const delay = Math.random() * 0.5;
+        const height = 10 + Math.random() * 20;
+        
+        raindrop.style.left = leftPos + '%';
+        raindrop.style.height = height + 'px';
+        raindrop.style.top = -height + 'px';
+        raindrop.style.animationDuration = duration + 's';
+        raindrop.style.animationDelay = delay + 's';
+        
+        rainContainer.appendChild(raindrop);
+      }
+
+      // Continuously create new raindrops
+      setInterval(() => {
+        if (document.getElementById('comingSoonModal').classList.contains('active')) {
+          for (let i = 0; i < 5; i++) {
+            const raindrop = document.createElement('div');
+            raindrop.className = 'raindrop';
+            
+            const leftPos = Math.random() * 100;
+            const duration = 0.5 + Math.random() * 0.5;
+            
+            raindrop.style.left = leftPos + '%';
+            raindrop.style.height = (10 + Math.random() * 20) + 'px';
+            raindrop.style.top = '-20px';
+            raindrop.style.animationDuration = duration + 's';
+            
+            rainContainer.appendChild(raindrop);
+            
+            setTimeout(() => raindrop.remove(), duration * 1000);
+          }
+        }
+      }, 100);
+    }
+
     // Update clock every second
     function updateClock() {
       const now = new Date();
@@ -676,5 +1001,5 @@
     setInterval(updateClock, 1000);
   </script>
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d5f31f80641a792',t:'MTc3MjQ0MTg2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d6158e391dda792',t:'MTc3MjQ2NDQyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d61868e23c8a792',t:'MTc3MjQ2NjI5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
